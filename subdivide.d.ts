@@ -6,4 +6,6 @@ interface SubdivideProps {
 
 declare class Subdivide extends React.Component<SubdivideProps, any> {}
 
+export function reducer(state: any, action: any): any;
+
 export default Subdivide;
