@@ -1,0 +1,46 @@
+'use strict'
+
+let path = require('path')
+
+//let ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+module.exports = {
+  entry: {
+    subdivide: [
+      './src/index'
+    ],
+  },
+  output: {
+    library: "subdivide",
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js',
+  },
+  externals: {
+    react: true,
+    redux: true,
+    "react-redux": true,
+    immutable: true
+  },
+  resolve: {
+    modulesDirectories: [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ]
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?/,
+        loaders: [ 'babel' ],
+        include: [
+          path.join(__dirname, 'src'),
+        ]
+      },
+      {
+        test: /\.png$/, loader: 'url-loader?limit=100000'
+      }
+    ]
+  }
+}

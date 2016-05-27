@@ -112,5 +112,6 @@
   },
   "release": {
     "debug": false
-  }
+  },
+  "typings": "subdivide.d.ts"
 }
