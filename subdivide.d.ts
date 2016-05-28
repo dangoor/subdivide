@@ -1,7 +1,10 @@
 import * as React from "react";
+import {Dispatch} from "redux";
 
 interface SubdivideProps {
-    DefaultComponent: {new(...args: any[]): React.Component<any, any>}
+    DefaultComponent: {new(...args: any[]): React.Component<any, any>};
+    dispatch: Dispatch;
+    subdivide: any;
 }
 
 declare class Subdivide extends React.Component<SubdivideProps, any> {}
