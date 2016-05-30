@@ -14,7 +14,7 @@ module.exports = {
     library: "subdivide",
     libraryTarget: 'umd',
     umdNamedDefine: true,
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'browser'),
     filename: '[name].js',
   },
   externals: {

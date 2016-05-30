@@ -123,7 +123,8 @@ export default class Layout extends Component {
   }
 
   render() {
-    const { subdivide, actions, DefaultComponent, iframeSafe } = this.props
+    const { subdivide, actions, DefaultComponent, iframeSafe, componentProps }
+      = this.props
     let panes
     if (iframeSafe) {
       panes = subdivide.allPanesIdsEver.toList().toJS().map(id => {
@@ -135,6 +136,7 @@ export default class Layout extends Component {
             actions={actions}
             key={id}
             DefaultComponent={DefaultComponent}
+            componentProps={componentProps}
           />
         )
       })
@@ -147,6 +149,7 @@ export default class Layout extends Component {
             actions={actions}
             key={pane.id}
             DefaultComponent={DefaultComponent}
+            componentProps={componentProps}
           />
         })
     }

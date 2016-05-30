@@ -937,6 +937,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var actions = _props.actions;
 	      var DefaultComponent = _props.DefaultComponent;
 	      var iframeSafe = _props.iframeSafe;
+	      var componentProps = _props.componentProps;
 
 	      var panes = void 0;
 	      if (iframeSafe) {
@@ -947,7 +948,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            pane: pane,
 	            actions: actions,
 	            key: id,
-	            DefaultComponent: DefaultComponent
+	            DefaultComponent: DefaultComponent,
+	            componentProps: componentProps
 	          });
 	        });
 	      } else {
@@ -959,7 +961,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	            pane: pane,
 	            actions: actions,
 	            key: pane.id,
-	            DefaultComponent: DefaultComponent
+	            DefaultComponent: DefaultComponent,
+	            componentProps: componentProps
 	          });
 	        });
 	      }
@@ -989,6 +992,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	exports.default = undefined;
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1075,16 +1080,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	      var subdivide = _props.subdivide;
 	      var actions = _props.actions;
 	      var DefaultComponent = _props.DefaultComponent;
+	      var componentProps = _props.componentProps;
 
 	      var styles = getStyles(pane);
+
+	      var extraProps = componentProps || {};
 
 	      return _react2.default.createElement(
 	        'div',
 	        { style: styles.pane, onMouseMove: this.onMouseMove, onMouseUp: this.onMouseUp },
-	        _react2.default.createElement(DefaultComponent, {
+	        _react2.default.createElement(DefaultComponent, _extends({}, extraProps, {
 	          subdividePane: pane,
 	          subdivideActions: actions,
-	          subdivide: subdivide }),
+	          subdivide: subdivide
+	        })),
 	        _react2.default.createElement(_CornerOverlay2.default, { pane: pane, subdivide: subdivide }),
 	        _react2.default.createElement(_Triangle2.default, {
 	          corner: _constants.SW,

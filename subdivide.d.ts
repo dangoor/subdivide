@@ -5,6 +5,7 @@ interface SubdivideProps {
     DefaultComponent: {new(...args: any[]): React.Component<any, any>};
     dispatch: Dispatch;
     subdivide: any;
+    componentProps: any;
 }
 
 declare class Subdivide extends React.Component<SubdivideProps, any> {}
