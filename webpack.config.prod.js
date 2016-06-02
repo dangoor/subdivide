@@ -18,10 +18,7 @@ module.exports = {
     filename: '[name].js',
   },
   externals: {
-    react: true,
-    redux: true,
-    "react-redux": true,
-    immutable: true
+    react: "React",
   },
   resolve: {
     modulesDirectories: [
