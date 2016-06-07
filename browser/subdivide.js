@@ -5295,10 +5295,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	      childIds: (0, _immutable.List)(pane.childIds)
 	    })));
 	  });
-	  return new _reducers.Layout(_extends({}, subdivide, {
+
+	  var properties = _extends({}, subdivide, {
 	    panes: panes,
 	    dividers: dividers
-	  }));
+	  });
+
+	  if (subdivide.allPanesIdsEver) {
+	    properties.allPanesIdsEver = (0, _immutable.OrderedSet)(subdivide.allPanesIdsEver);
+	  }
+
+	  return new _reducers.Layout(properties);
 	}
 
 	function wrapPane(state, id) {

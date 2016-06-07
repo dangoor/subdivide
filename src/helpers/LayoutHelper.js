@@ -7,7 +7,7 @@ import {
   COL
 } from '../constants'
 
-import { List, Map } from 'immutable'
+import { List, Map, OrderedSet } from 'immutable'
 import { Pane, Layout, Divider } from '../reducers'
 import secondPass from './secondPass'
 
@@ -37,11 +37,18 @@ export function deserialize(subdivide) {
       childIds: List(pane.childIds)
     }))
   })
-  return new Layout({
+
+  const properties = {
     ...subdivide,
     panes,
     dividers
-  })
+  };
+
+  if (subdivide.allPanesIdsEver) {
+    properties.allPanesIdsEver = OrderedSet(subdivide.allPanesIdsEver)
+  }
+
+  return new Layout(properties)
 }
 
 function wrapPane(state, id) {
